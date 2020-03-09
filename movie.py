@@ -1,6 +1,6 @@
 import requests
 import json
-import datetime
+import time
 
 
 
@@ -9,15 +9,18 @@ def menu():
     [1] Adicionar filme
     [2] Buscar filme
     [3] Alterar filme
-    [4] Exluir filme''')
+    [4] Exluir filme
+    [5] Sair\n''')
     if op == '1':
-        escrever_json()
+        adicionar()
     else:
-        print('Fim')
+        print('Saindo')
+        exit
+        
 
-def escrever_json():
+def adicionar():
 
-    name = str(input('Digite o nome do filme:'))
+    name = str(input('Digite o nome do filme: '.lower()))
 
     response = requests.get('http://www.omdbapi.com/?apikey=f2c65418&t={}&y='.format(name)).json()
 
@@ -34,8 +37,6 @@ def escrever_json():
     'Status': 'Pendente'
      }
 
-             
-
     print('Titulo: ',response['Title'])
     print('Ano:', response['Year'])
     print('Duração: ', response['Runtime'])
@@ -47,16 +48,42 @@ def escrever_json():
     print('Prêmios: ', response['Awards'])
     print('Status', dic["Status"])
         
+    lista = [dic]
+    op = input('Dejesa adicionar esse filme à lista de dejesos? ')
 
-    op = input('Dejesa adicionar esse filme à lista de dejesos?')
-        
     if op == '1':
-        with open ('filmes.json', 'a') as files:
-            json.dump(dic, files, indent = 5)
-        print('Filme adicionado com sucesso!')
-        menu()
-    else:
-        print('Saindo')
-        menu()
 
-menu()          
+        flag = True
+        try:
+
+            with open('filmes.json') as files:
+                dados = json.load(files)
+
+            for c in dados:
+                if dic["Titulo"] == c["Titulo"]:
+                    flag = False
+
+                else:
+                    flag = True
+
+            if flag:
+                dados.append(dic)
+                with open ('filmes.json', 'w') as files:
+                    json.dump(dados, files, indent = 5)
+                    print('Filme adicionado com sucesso!')
+                    time.sleep(2)
+                    menu()
+            else:
+                print('O filme já foi cadastrado! ')
+                flag = False
+                menu()
+
+        except FileNotFoundError:
+            with open ('filmes.json', 'w') as files:
+                json.dump(dados, files, indent = 5)
+                print('Filme adicionado com sucesso!')
+                menu()
+
+
+menu()         
+
