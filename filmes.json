@@ -1,38 +1,38 @@
 [
-     {
-          "Titulo": "Up",
-          "Ano": "2009",
-          "Tempo de filme": "96 min",
-          "Genero": "Animation, Adventure, Comedy, Family",
-          "Director": "Pete Docter, Bob Peterson(co-director)",
-          "Atores": "Edward Asner, Christopher Plummer, Jordan Nagai, Bob Peterson",
-          "Idioma": "English",
-          "Pais": "USA",
-          "Premios": "Won 2 Oscars. Another 78 wins & 82 nominations.",
-          "Status": "Pendente"
-     },
-     {
-          "Titulo": "Joker",
-          "Ano": "2019",
-          "Tempo de filme": "122 min",
-          "Genero": "Crime, Drama, Thriller",
-          "Director": "Todd Phillips",
-          "Atores": "Joaquin Phoenix, Robert De Niro, Zazie Beetz, Frances Conroy",
-          "Idioma": "English",
-          "Pais": "USA, Canada",
-          "Premios": "Won 2 Oscars. Another 57 wins & 163 nominations.",
-          "Status": "Pendente"
-     },
-     {
-          "Titulo": "Furious 7",
-          "Ano": "2015",
-          "Tempo de filme": "137 min",
-          "Genero": "Action, Adventure, Thriller",
-          "Director": "James Wan",
-          "Atores": "Vin Diesel, Paul Walker, Jason Statham, Michelle Rodriguez",
-          "Idioma": "English, Thai, Arabic, Spanish",
-          "Pais": "USA, China, Japan, Canada, United Arab Emirates",
-          "Premios": "Nominated for 1 Golden Globe. Another 33 wins & 34 nominations.",
-          "Status": "Pendente"
-     }
+    {
+        "Titulo": "joker",
+        "Ano": "2019",
+        "Tempo de filme": "122 min",
+        "Genero": "Crime, Drama, Thriller",
+        "Director": "Todd Phillips",
+        "Atores": "Joaquin Phoenix, Robert De Niro, Zazie Beetz, Frances Conroy",
+        "Idioma": "English",
+        "Pais": "USA, Canada",
+        "Premios": "Won 2 Oscars. Another 57 wins & 163 nominations.",
+        "Status": "Pendente"
+    },
+    {
+        "Titulo": "xxx",
+        "Ano": "2002",
+        "Tempo de filme": "124 min",
+        "Genero": "Action, Adventure, Thriller",
+        "Director": "Rob Cohen",
+        "Atores": "Vin Diesel, Asia Argento, Marton Csokas, Samuel L. Jackson",
+        "Idioma": "English, German, Spanish, Russian, Czech",
+        "Pais": "USA",
+        "Premios": "4 wins & 14 nominations.",
+        "Status": "Pendente"
+    },
+    {
+        "Titulo": "up",
+        "Ano": "2009",
+        "Tempo de filme": "96 min",
+        "Genero": "Animation, Adventure, Comedy, Family",
+        "Director": "Pete Docter, Bob Peterson(co-director)",
+        "Atores": "Edward Asner, Christopher Plummer, Jordan Nagai, Bob Peterson",
+        "Idioma": "English",
+        "Pais": "USA",
+        "Premios": "Won 2 Oscars. Another 78 wins & 82 nominations.",
+        "Status": "Pendente"
+    }
 ]
