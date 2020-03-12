@@ -3,25 +3,28 @@ import json
 import time
 
 def menu():
-    op = input('''################################################
-                      Menu
+    op = input('''\n################################################
+#                     Menu                     #
 ################################################
-    Seja bem vindo(a) à sua lista de desejos
-    [1] Adicionar filme
-    [2] Buscar filme
-    [3] Alterar filme
-    [4] Exluir filme
-    [5] Sair
+#  Seja bem vindo(a) à sua lista de desejos    #
+#  [1] Adicionar filme                         #
+#  [2] Buscar filme na sua lista de desejos    #
+#  [3] Listar filmes da sua lista de desejos   #
+#  [4] Alterar status de um filme              #
+#  [5] Exluir filme da sua lista de desejos    #
+#  [0] Sair                                    #
 ################################################\n''')
     if op == '1':
         add()
     elif op == '2':
         search()
     elif op == '3':
-        change()
+        show()
     elif op == '4':
-        delete()
+        change()
     elif op == '5':
+        delete()
+    elif op == '0':
         print('Saindo...')
         time.sleep(2)
         exit
@@ -40,7 +43,7 @@ def add():
         'Ano': response["Year"],
         'Tempo de filme': response["Runtime"],
         'Genero': response["Genre"],
-        'Director': response["Director"],
+        'Diretor': response["Director"],
         'Atores': response["Actors"],
         'Idioma': response["Language"],
         'Pais': response["Country"],
@@ -59,25 +62,26 @@ def add():
         print('Prêmios: ', response['Awards'])
         print('Status', dic["Status"])
             
+            
         lista = [dic]
         print('Escolha uma opção') 
-        print('[1] Adicionar filme a lista de tarefas')
+        print('[1] Adicionar filme a lista de desejos')
         print('[2] Voltar ao menu')
         op = input('')
 
         if op == '1':
             flag = True
             try:
-                with open('filmes.json') as files:
+                with open('movies.json') as files:
                     dados = json.load(files)
 
-                for c in dados:
-                    if dic["Titulo"] == c["Titulo"]:
+                for counter in dados:
+                    if dic["Titulo"] == counter["Titulo"]:
                         flag = False
 
                 if flag:
                     dados.append(dic)
-                    with open ('filmes.json', 'w') as files:
+                    with open ('movies.json', 'w') as files:
                         json.dump(dados, files, indent = 5)
                     print('Filme adicionado com sucesso!')
                     time.sleep(1)
@@ -89,7 +93,7 @@ def add():
 
             except FileNotFoundError:
                 if flag:
-                    with open ('filmes.json', 'w') as files:
+                    with open ('movies.json', 'w') as files:
                         json.dump(lista, files, indent = 5)
                     print('Filme adicionado com sucesso!')
                     time.sleep(1)
@@ -110,113 +114,158 @@ def search():
     name = input('Digite o nome do filme que deseja buscar: ')
     flag = False
 
-    with open('filmes.json') as file:
-        dados = json.load(file)
+    try:
+        with open('movies.json') as file:
+            dados = json.load(file)
 
-    for c in dados:
-        if c["Titulo"] == name:
-            lista = c
-            flag = True
+        for counter in dados:
+            if counter["Titulo"] == name:
+                lista = counter
+                flag = True
+            else:
+                pass
+        
+        if flag == True:
+            print('Titulo: ',lista["Titulo"])
+            print('Ano:', lista['Ano'])
+            print('Duração: ', lista['Tempo de filme'])
+            print('Genero: ', lista['Genero'])
+            print('Diretor: ',lista['Diretor'])
+            print('Atores: ',lista['Atores'])
+            print('Idioma: ', lista['Idioma'])
+            print('Pais: ', lista['Pais'])
+            print('Prêmios: ', lista['Premios'])
+            print('Status', lista["Status"])
+            time.sleep(2)
+            menu()
+
         else:
-            pass
-    
-    if flag == True:
-        print('Titulo: ',lista["Titulo"])
-        print('Ano:', lista['Ano'])
-        print('Duração: ', lista['Tempo de filme'])
-        print('Genero: ', lista['Genero'])
-        print('Diretor: ',lista['Director'])
-        print('Atores: ',lista['Atores'])
-        print('Idioma: ', lista['Idioma'])
-        print('Pais: ', lista['Pais'])
-        print('Prêmios: ', lista['Premios'])
-        print('Status', lista["Status"])
-        #print(json.dumps(lista, indent = 4))
+            print('O filme não existe na sua lista de desejos!')
+            time.sleep(2)
+            menu()
+    except FileNotFoundError:
+        print('\nVocê ainda não possui uma lista de desejos')
+        print('Volte ao menu para criar uma\n')
         time.sleep(2)
         menu()
 
-    else:
-        print('O filme não existe na sua lista de desejos!')
-        time.sleep(1)
+def show():
+    try:    
+        with open('movies.json') as file:
+            data = json.load(file)
+
+        print('###########################################################')
+        for counter in data:
+            print('Titulo: ',counter["Titulo"])
+            print('Ano:', counter['Ano'])
+            print('Duração: ', counter['Tempo de filme'])
+            print('Genero: ', counter['Genero'])
+            print('Diretor: ',counter['Diretor'])
+            print('Atores: ',counter['Atores'])
+            print('Idioma: ', counter['Idioma'])
+            print('Pais: ', counter['Pais'])
+            print('Prêmios: ', counter['Premios'])
+            print('Status', counter["Status"])
+            print('###########################################################')
+        time.sleep(2)
+        menu()
+    except FileNotFoundError:
+        print('\nVocê ainda não possui uma lista de desejos')
+        print('Volte ao menu para criar uma\n')
+        time.sleep(2)
         menu()
 
 def change():
     filme = input('Digite o nome do filme que deseja alterar: ')
+    filme = filme.lower()
     flag = False
 
-    with open('filmes.json') as file:
-        dados = json.load(file)
+    try:
+        with open('movies.json') as file:
+            dados = json.load(file)
 
-    for c in dados:
-        if filme == c["Titulo"]:
-            flag = True
-            break
+        for counter in dados:
+            if filme == counter["Titulo"]:
+                flag = True
+                break
 
-    if flag:
-        print('Digite uma opção')
-        print('[1] Assistido')
-        print('[2] Assistir mais tarde')
-        print('[3] Continuar assistindo\n')
-        op = input('')
+        if flag:
+            print('Digite uma opção')
+            print('[1] Assistido')
+            print('[2] Assistir mais tarde')
+            print('[3] Continuar assistindo\n')
+            op = input('')
 
-        if op == '1':
-            c["Status"] = "Assistido"
-            with open('filmes.json', 'w') as file:
-                json.dump(dados, file, indent =  4)
-            print('Status alterado para assistido')
-            time.sleep(1)
-            menu()
-        elif op == '2':
-            c["Status"] = "Assistir mais tarde"
-            with open('filmes.json', 'w') as file:
-                json.dump(dados, file, indent = 4)
-            print('Status alterado para assistir mais tarde')
-            time.sleep(1)
-            menu()
-        elif op == '3':
-            c["Status"] = "Continuar assistindo"
-            with open('filmes.json', 'w') as file:
-                json.dump(dados, file, indent = 4)
-            print('Status alterado para continuar assistindo')
-            time.sleep(1)
-            menu()
+            if op == '1':
+                counter["Status"] = "Assistido"
+                with open('movies.json', 'w') as file:
+                    json.dump(dados, file, indent =  4)
+                print('Status alterado para assistido')
+                time.sleep(2)
+                menu()
+            elif op == '2':
+                counter["Status"] = "Assistir mais tarde"
+                with open('movies.json', 'w') as file:
+                    json.dump(dados, file, indent = 4)
+                print('Status alterado para assistir mais tarde')
+                time.sleep(2)
+                menu()
+            elif op == '3':
+                counter["Status"] = "Continuar assistindo"
+                with open('movies.json', 'w') as file:
+                    json.dump(dados, file, indent = 4)
+                print('Status alterado para continuar assistindo')
+                time.sleep(2)
+                menu()
+            else:
+                print('Opção invalida')
+                time.sleep(2)
+                menu()
         else:
-            print('Opção invalida')
-            time.sleep(1)
+            print('O titulo digitado não existe em sua lista de desejos!')
+            time.sleep(2)
             menu()
-    else:
-        print('O titulo digitado não existe em sua lista de desejos!')
-        time.sleep(1)
-        menu()
+    except FileNotFoundError:
+        print('\nVocê ainda não possui uma lista de desejos')
+        print('Volte ao menu para criar uma\n')
+        time.sleep(2)
+        menu()        
 
 def delete():
     filme = input('Digite o nome do filme à ser deletado: ')
+    filme = filme.lower()
 
-    with open('filmes.json') as file:
-        dados = json.load(file)
-        flag = False
-        lista = []
+    try:
+        with open('movies.json') as file:
+            dados = json.load(file)
+            flag = False
+            lista = []
 
-        for c in dados:
-            if c["Titulo"] == filme:
-                flag = True
-            else:
-                pass
-
-        if flag:
-            for c in dados:
-                if c["Titulo"] != filme:
-                    lista.append(c)
+            for counter in dados:
+                if counter["Titulo"] == filme:
+                    flag = True
                 else:
                     pass
-            with open('filmes.json', 'w') as file:
-                json.dump(lista, file, indent = 4)
-            print('Filme excluido com sucesso')
-            time.sleep(1)
-            menu()
-        else:
-            print('O filme digitado não existe na sua lista de desejos\n')
-            time.sleep(1)
-            menu()
+
+            if flag:
+                for counter in dados:
+                    if counter["Titulo"] != filme:
+                        lista.append(counter)
+                    else:
+                        pass
+                with open('movies.json', 'w') as file:
+                    json.dump(lista, file, indent = 4)
+                print('Filme excluido com sucesso')
+                time.sleep(2)
+                menu()
+            else:
+                print('O filme digitado não existe na sua lista de desejos\n')
+                time.sleep(2)
+                menu()
+    except FileNotFoundError:
+        print('\nVocê ainda não possui uma lista de desejos')
+        print('Volte ao menu para criar uma\n')
+        time.sleep(2)
+        menu()
 
 menu()         
