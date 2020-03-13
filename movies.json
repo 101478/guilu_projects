@@ -1,110 +1,14 @@
 [
-    {
-        "Titulo": "king lion",
-        "Ano": "2012",
-        "Tempo de filme": "4 min",
-        "Genero": "Animation, Short, Adventure, Comedy, Drama",
-        "Diretor": "Taylor James Johnson",
-        "Atores": "Taylor James Johnson",
-        "Idioma": "English",
-        "Pais": "USA",
-        "Premios": "N/A",
-        "Status": "Pendente"
-    },
-    {
-        "Titulo": "clube das chaves",
-        "Ano": "2005\u2013",
-        "Tempo de filme": "50 min",
-        "Genero": "Adventure",
-        "Diretor": "N/A",
-        "Atores": "Diogo Martins, Maria Vasconcelos, Gon\u00e7alo Lima, Sofia Arruda",
-        "Idioma": "Portuguese",
-        "Pais": "Portugal",
-        "Premios": "N/A",
-        "Status": "Pendente"
-    },
-    {
-        "Titulo": "war",
-        "Ano": "2007",
-        "Tempo de filme": "103 min",
-        "Genero": "Action, Thriller",
-        "Diretor": "Philip G. Atwell",
-        "Atores": "Jet Li, Jason Statham, John Lone, Devon Aoki",
-        "Idioma": "English, Mandarin, Japanese, Cantonese",
-        "Pais": "USA, Canada",
-        "Premios": "N/A",
-        "Status": "Assistido"
-    },
-    {
-        "Titulo": "1",
-        "Ano": "2013",
-        "Tempo de filme": "112 min",
-        "Genero": "Documentary, History, Sport",
-        "Diretor": "Paul Crowder",
-        "Atores": "Michael Fassbender, Lewis Hamilton, Niki Lauda, Michael Schumacher",
-        "Idioma": "English",
-        "Pais": "USA",
-        "Premios": "1 nomination.",
-        "Status": "Assistido"
-    },
-    {
-        "Titulo": "terminator 2: judgment day",
-        "Ano": "1991",
-        "Tempo de filme": "137 min",
-        "Genero": "Action, Sci-Fi",
-        "Diretor": "James Cameron",
-        "Atores": "Arnold Schwarzenegger, Linda Hamilton, Edward Furlong, Robert Patrick",
-        "Idioma": "English, Spanish",
-        "Pais": "USA",
-        "Premios": "Won 4 Oscars. Another 32 wins & 33 nominations.",
-        "Status": "Pendente"
-    },
-    {
-        "Titulo": "iron man 3",
-        "Ano": "2013",
-        "Tempo de filme": "130 min",
-        "Genero": "Action, Adventure, Sci-Fi",
-        "Diretor": "Shane Black",
-        "Atores": "Robert Downey Jr., Gwyneth Paltrow, Don Cheadle, Guy Pearce",
-        "Idioma": "English",
-        "Pais": "USA",
-        "Premios": "Nominated for 1 Oscar. Another 20 wins & 62 nominations.",
-        "Status": "Assistir mais tarde"
-    },
-    {
-        "Titulo": "4",
-        "Ano": "2004",
-        "Tempo de filme": "126 min",
-        "Genero": "Drama, Mystery, Sci-Fi",
-        "Diretor": "Ilya Khrzhanovskiy",
-        "Atores": "Yuriy Laguta, Marina Vovchenko, Sergey Shnurov, Andrei Kudriashov",
-        "Idioma": "Russian",
-        "Pais": "Russia, Netherlands",
-        "Premios": "12 wins & 6 nominations.",
-        "Status": "Continuar assistindo"
-    },
-    {
-        "Titulo": "big hero 6",
-        "Ano": "2014",
-        "Tempo de filme": "102 min",
-        "Genero": "Animation, Action, Adventure, Family, Sci-Fi",
-        "Diretor": "Don Hall, Chris Williams",
-        "Atores": "Scott Adsit, Ryan Potter, Daniel Henney, T.J. Miller",
-        "Idioma": "English",
-        "Pais": "USA",
-        "Premios": "Won 1 Oscar. Another 16 wins & 58 nominations.",
-        "Status": "Assistido"
-    },
-    {
-        "Titulo": "10",
-        "Ano": "1979",
-        "Tempo de filme": "122 min",
-        "Genero": "Comedy, Romance",
-        "Diretor": "Blake Edwards",
-        "Atores": "Dudley Moore, Julie Andrews, Bo Derek, Robert Webber",
-        "Idioma": "English",
-        "Pais": "USA",
-        "Premios": "Nominated for 2 Oscars. Another 9 nominations.",
-        "Status": "Assistido"
-    }
+     {
+          "Titulo": "joker",
+          "Ano": "2019",
+          "Tempo de filme": "122 min",
+          "Genero": "Crime, Drama, Thriller",
+          "Diretor": "Todd Phillips",
+          "Atores": "Joaquin Phoenix, Robert De Niro, Zazie Beetz, Frances Conroy",
+          "Idioma": "English",
+          "Pais": "USA, Canada",
+          "Premios": "Won 2 Oscars. Another 57 wins & 163 nominations.",
+          "Status": "Assistido"
+     }
 ]
