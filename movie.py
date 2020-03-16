@@ -15,7 +15,7 @@ def menu():
 #  [0] Sair                                    #
 ################################################\n''').strip()
     if op == '1':
-        add()
+        seek()
     elif op == '2':
         search()
     elif op == '3':
@@ -27,17 +27,28 @@ def menu():
     elif op == '0':
         print('Saindo...')
         time.sleep(2)
-        exit
+        exit()
     else:
         print('Opção invalida!')
         menu()
 
-def add():
-    name = str(input('Digite o nome do filme: '.title()))
+def seek():
+    name = str(input('Digite o nome do filme: '.lower()))
     response = requests.get('http://www.omdbapi.com/?apikey=f2c65418&t={}&y='.format(name)).json()
 
-    try:
+    
 
+    try:
+        check = {'Tipo': response["Type"]}
+
+        if check['Tipo'] == 'series':
+            print('Apenas filmes permitidos')
+            print('Busque por um filme')
+            time.sleep(1)
+            seek()
+        else:
+            pass
+        
         dic = {
         'Titulo': response["Title"].lower(), 
         'Ano': response["Year"],
@@ -51,18 +62,17 @@ def add():
         'Status': 'Pendente'
         }
 
-        print('Titulo: ',response['Title'])
-        print('Ano:', response['Year'])
-        print('Duração: ', response['Runtime'])
-        print('Genero: ', response['Genre'])
-        print('Diretor: ',response['Director'])
-        print('Atores: ',response['Actors'])
-        print('Idioma: ', response['Language'])
-        print('Pais: ', response['Country'])
-        print('Prêmios: ', response['Awards'])
+        print('Titulo: ',dic['Titulo'])
+        print('Ano:', dic['Ano'])
+        print('Duração: ', dic['Tempo de filme'])
+        print('Genero: ', dic['Genero'])
+        print('Diretor: ',dic['Diretor'])
+        print('Atores: ',dic['Atores'])
+        print('Idioma: ', dic['Idioma'])
+        print('Pais: ', dic['Pais'])
+        print('Prêmios: ', dic['Premios'])
         print('Status', dic["Status"])
-            
-            
+
         lista = [dic]
         print('Escolha uma opção') 
         print('[1] Adicionar filme a lista de desejos')
@@ -118,7 +128,6 @@ def add():
                     menu()
 
             except FileNotFoundError:
-                if flag:
                     print('Deseja adicionar status ao filme?')
                     print('[1] Sim')
                     print('[2] Não')

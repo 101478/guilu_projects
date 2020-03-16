@@ -1,5 +1,17 @@
 [
      {
+          "Titulo": "up",
+          "Ano": "2009",
+          "Tempo de filme": "96 min",
+          "Genero": "Animation, Adventure, Comedy, Family",
+          "Diretor": "Pete Docter, Bob Peterson(co-director)",
+          "Atores": "Edward Asner, Christopher Plummer, Jordan Nagai, Bob Peterson",
+          "Idioma": "English",
+          "Pais": "USA",
+          "Premios": "Won 2 Oscars. Another 78 wins & 82 nominations.",
+          "Status": "Pendente"
+     },
+     {
           "Titulo": "joker",
           "Ano": "2019",
           "Tempo de filme": "122 min",
@@ -8,7 +20,43 @@
           "Atores": "Joaquin Phoenix, Robert De Niro, Zazie Beetz, Frances Conroy",
           "Idioma": "English",
           "Pais": "USA, Canada",
-          "Premios": "Won 2 Oscars. Another 57 wins & 163 nominations.",
-          "Status": "Assistido"
+          "Premios": "Won 2 Oscars. Another 84 wins & 190 nominations.",
+          "Status": "Pendente"
+     },
+     {
+          "Titulo": "1",
+          "Ano": "2013",
+          "Tempo de filme": "112 min",
+          "Genero": "Documentary, History, Sport",
+          "Diretor": "Paul Crowder",
+          "Atores": "Michael Fassbender, Lewis Hamilton, Niki Lauda, Michael Schumacher",
+          "Idioma": "English",
+          "Pais": "USA",
+          "Premios": "1 nomination.",
+          "Status": "Pendente"
+     },
+     {
+          "Titulo": "star wars: episode iv - a new hope",
+          "Ano": "1977",
+          "Tempo de filme": "121 min",
+          "Genero": "Action, Adventure, Fantasy, Sci-Fi",
+          "Diretor": "George Lucas",
+          "Atores": "Mark Hamill, Harrison Ford, Carrie Fisher, Peter Cushing",
+          "Idioma": "English",
+          "Pais": "USA",
+          "Premios": "Won 6 Oscars. Another 52 wins & 28 nominations.",
+          "Status": "Pendente"
+     },
+     {
+          "Titulo": "big hero 6",
+          "Ano": "2014",
+          "Tempo de filme": "102 min",
+          "Genero": "Animation, Action, Adventure, Family, Sci-Fi",
+          "Diretor": "Don Hall, Chris Williams",
+          "Atores": "Scott Adsit, Ryan Potter, Daniel Henney, T.J. Miller",
+          "Idioma": "English",
+          "Pais": "USA",
+          "Premios": "Won 1 Oscar. Another 16 wins & 58 nominations.",
+          "Status": "Assistir mais tarde"
      }
 ]
