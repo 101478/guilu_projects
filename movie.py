@@ -3,17 +3,21 @@ import json
 import time
 
 def menu():
-    op = input('''\n################################################
-#                     Menu                     #
-################################################
-#  Seja bem vindo(a) à sua lista de desejos    #
-#  [1] Adicionar filme                         #
-#  [2] Buscar filme na sua lista de desejos    #
-#  [3] Listar filmes da sua lista de desejos   #
-#  [4] Alterar status de um filme              #
-#  [5] Exluir filme da sua lista de desejos    #
-#  [0] Sair                                    #
-################################################\n''').strip()
+    op = input('''\n########################################################
+#                         Menu                         #
+#------------------------------------------------------#
+#  Seja bem vindo(a) à sua lista de desejos            #
+#------------------------------------------------------#
+#  [1] Adicionar filme                                 #
+#  [] Pedir sugestão de filme                          #
+#  [] Pedir sugestão de acordo com seu historico       #
+#  [] Pedir sugestão de acordo com o ultimo adicionado #
+#  [2] Buscar filme na sua lista de desejos            #
+#  [3] Listar filmes da sua lista de desejos           #
+#  [4] Alterar status de um filme                      #
+#  [5] Exluir filme da sua lista de desejos            #
+#  [0] Sair                                            #
+########################################################\n''').strip()
     if op == '1':
         seek()
     elif op == '2':
@@ -34,33 +38,27 @@ def menu():
 
 def seek():
     name = str(input('Digite o nome do filme: '.lower()))
-    response = requests.get('http://www.omdbapi.com/?apikey=f2c65418&t={}&y='.format(name)).json()
+    request = requests.get('http://www.omdbapi.com/?apikey=f2c65418&t={}&t='.format(name)).json()
+    assigns(request)
 
-    
+def assigns(response):
+    dic = {
+    'Titulo': response["Title"].lower(), 
+    'Ano': response["Year"],
+    'Tempo de filme': response["Runtime"],
+    'Genero': response["Genre"],
+    'Diretor': response["Director"],
+    'Atores': response["Actors"],
+    'Idioma': response["Language"],
+    'Pais': response["Country"],
+    'Premios': response["Awards"],
+    'Status': 'Pendente'
+    }
+    add(dic)
+
+def add(dic):
 
     try:
-        check = {'Tipo': response["Type"]}
-
-        if check['Tipo'] == 'series':
-            print('Apenas filmes permitidos')
-            print('Busque por um filme')
-            time.sleep(1)
-            seek()
-        else:
-            pass
-        
-        dic = {
-        'Titulo': response["Title"].lower(), 
-        'Ano': response["Year"],
-        'Tempo de filme': response["Runtime"],
-        'Genero': response["Genre"],
-        'Diretor': response["Director"],
-        'Atores': response["Actors"],
-        'Idioma': response["Language"],
-        'Pais': response["Country"],
-        'Premios': response["Awards"],
-        'Status': 'Pendente'
-        }
 
         print('Titulo: ',dic['Titulo'])
         print('Ano:', dic['Ano'])
@@ -119,7 +117,7 @@ def seek():
                     dados.append(dic)
                     with open ('movies.json', 'w') as files:
                         json.dump(dados, files, indent = 5)
-                    print('Filme adicionado com sucesso!\n')
+                    print('e adicionado com sucesso!\n')
                     time.sleep(1)
                     menu()
                 else:
@@ -156,7 +154,7 @@ def seek():
                             menu()
                     with open ('movies.json', 'w') as files:
                         json.dump(lista, files, indent = 5)
-                    print('Filme adicionado com sucesso!\n')
+                    print('e adicionado com sucesso!\n')
                     time.sleep(1)
                     menu()
         elif op == '2':

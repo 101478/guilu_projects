@@ -58,5 +58,29 @@
           "Pais": "USA",
           "Premios": "Won 1 Oscar. Another 16 wins & 58 nominations.",
           "Status": "Assistir mais tarde"
+     },
+     {
+          "Titulo": "super 8",
+          "Ano": "2011",
+          "Tempo de filme": "112 min",
+          "Genero": "Action, Mystery, Sci-Fi, Thriller",
+          "Diretor": "J.J. Abrams",
+          "Atores": "Joel Courtney, Jessica Tuck, Joel McKinnon Miller, Ryan Lee",
+          "Idioma": "English",
+          "Pais": "USA",
+          "Premios": "11 wins & 70 nominations.",
+          "Status": "Assistir mais tarde"
+     },
+     {
+          "Titulo": "furious 7",
+          "Ano": "2015",
+          "Tempo de filme": "137 min",
+          "Genero": "Action, Adventure, Crime, Thriller",
+          "Diretor": "James Wan",
+          "Atores": "Vin Diesel, Paul Walker, Jason Statham, Michelle Rodriguez",
+          "Idioma": "English, Thai, Arabic, Spanish",
+          "Pais": "USA, China, Japan, Canada, United Arab Emirates",
+          "Premios": "Nominated for 1 Golden Globe. Another 33 wins & 34 nominations.",
+          "Status": "Assistir mais tarde"
      }
 ]
